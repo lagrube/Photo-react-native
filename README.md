@@ -14,24 +14,24 @@
 - Code propre, petits composants, peu ou pas d'erreur TypeScript `(2)`.
 
 - Mettre en place un écran qui permet de prendre des photos.
-  Soit avec l'appareil photo de devant (selfie) soit avec l'appareil photo de derrière (classique) (1).
+  Soit avec l'appareil photo de devant (selfie) soit avec l'appareil photo de derrière (classique) `(1)`.
 
-- Afficher en bas à gauche (en premier), la photo la plus récente (la dernière prise) (1).
+- Afficher en bas à gauche (en premier), la photo la plus récente (la dernière prise) `(1)`.
 
-- Pouvoir scroller horizontalement entre toutes les photos prises (1).
+- Pouvoir scroller horizontalement entre toutes les photos prises `(1)`.
 
-- Chaque photo prise doit être enregistrée à l'aide d'AsyncStorage afin de la retrouver si l'utilisateur réouvre l'app ainsi que dans un contexte React ou un Store Redux. (3).
+- Chaque photo prise doit être enregistrée à l'aide d'AsyncStorage afin de la retrouver si l'utilisateur réouvre l'app ainsi que dans un contexte React ou un Store Redux. `(3)`.
 
-- Au tap sur le picto nuage, sauvegarder dans la photothèque (Galerie Android, Photos iOS) et changer le statut du nuage qui passe de barré à complet (4).
+- Au tap sur le picto nuage, sauvegarder dans la photothèque (Galerie Android, Photos iOS) et changer le statut du nuage qui passe de barré à complet `(4).
 
 - Au tap sur le picto poubelle afficher une popin de confirmation (BottomSheet) de suppression de l'image.
 - Confirmation fermeture de la popin et suppression de l'image en local et dans le state actuel.
-- Annulation : fermeture de la popin (3).
+- Annulation : fermeture de la popin `(3)`.
 
-- Agrandir la zone d'image et ajouter un picto de partage, au tap sur ce picto afficher une boîte de dialog pour partager l'image (2).
+- Agrandir la zone d'image et ajouter un picto de partage, au tap sur ce picto afficher une boîte de dialog pour partager l'image `(2)`.
 
 - Rajouter au tap sur l'icône de sauvegarde de la photo, l'upload de la photo sur un serveur node.js.
-  Aide pour la partie serveur (voir projet server.js) (2).
+  Aide pour la partie serveur (voir projet server.js) `(2)`.
 
 ## 🔨 Installation
 
