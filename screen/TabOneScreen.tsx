@@ -11,8 +11,9 @@ import {
 import { Camera } from "expo-camera";
 import { CapturedPicture, FlashMode } from "expo-camera/build/Camera.types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Entypo, FontAwesome } from "@expo/vector-icons";
+import { Entypo, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { BottomSheet } from "react-native-elements";
+import * as MediaLibrary from "expo-media-library";
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState<any>(null);
@@ -23,6 +24,8 @@ export default function App() {
 
   const [popup, setPopup] = useState<any>();
   const [uriPicture, setUriPicture] = useState<any>();
+
+  const [savePhoto, setSavePhoto] = useState<string>();
 
   const __handleFlashMode = () => {
     if (flashMode === "on") {
@@ -55,11 +58,21 @@ export default function App() {
               <Entypo name="share" size={24} color="black" />​
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonPlus}>
+          <TouchableOpacity
+            style={styles.buttonPlus}
+            onPress={() => {
+              savePicture(item.uri);
+            }}
+          >
             <Text style={styles.textButton}>
-              <FontAwesome name="download" size={24} color="black" />
+              {savePhoto === item.uri ? (
+                <Ionicons name="cloud-offline" size={24} color="black" />
+              ) : (
+                <Ionicons name="cloud-sharp" size={24} color="black" />
+              )}
             </Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.buttonPlus}
             onPress={() => {
@@ -100,6 +113,13 @@ export default function App() {
       cameraRef.current.takePictureAsync().then((picture) => {
         setPictures([picture, ...pictures]);
       });
+  };
+
+  const savePicture = async (item: any) => {
+    const res = await MediaLibrary.requestPermissionsAsync();
+    if (res.granted) {
+      MediaLibrary.saveToLibraryAsync(item).then(() => setSavePhoto(item));
+    }
   };
 
   useEffect(() => {
@@ -233,6 +253,28 @@ export default function App() {
       width: 170,
       borderRadius: 10,
     },
+    popup: {
+      height: "25%",
+    },
+    popupTitle: {
+      fontWeight: "bold",
+      textAlign: "center",
+    },
+    popupText: {
+      padding: 15,
+      marginBottom: 20,
+      width: "100%",
+      textAlign: "center",
+      fontWeight: "bold",
+    },
+    popupDelete: {
+      backgroundColor: "red",
+      marginTop: 20,
+      padding: 15,
+      width: "100%",
+      textAlign: "center",
+      fontWeight: "bold",
+    },
   });
 
   return (
@@ -271,22 +313,34 @@ export default function App() {
         </View>
       </Camera>
       {popup ? (
-        <BottomSheet isVisible={popup} containerStyle={{ height: 50 }}>
-          <Text
-            onPress={() => {
-              setPopup(false);
-              if (pictures.length === 1) {
-                AsyncStorage.removeItem("image");
-              }
-              setPictures(
-                pictures.filter((pict: any) => pict.uri !== uriPicture),
-              );
+        <View style={styles.popup}>
+          <BottomSheet
+            isVisible={popup}
+            containerStyle={{
+              backgroundColor: "rgba(0.5, 0.25, 0, 0.2)",
+              display: "flex",
             }}
           >
-            Oui
-          </Text>
-          <Text onPress={() => setPopup(false)}>Non</Text>
-        </BottomSheet>
+            <Text style={styles.popupTitle}>Êtes vous sûr ?</Text>
+            <Text
+              onPress={() => {
+                setPopup(false);
+                if (pictures.length === 1) {
+                  AsyncStorage.removeItem("image");
+                }
+                setPictures(
+                  pictures.filter((pict: any) => pict.uri !== uriPicture),
+                );
+              }}
+              style={styles.popupDelete}
+            >
+              Supprimer
+            </Text>
+            <Text onPress={() => setPopup(false)} style={styles.popupText}>
+              Annuler
+            </Text>
+          </BottomSheet>
+        </View>
       ) : (
         <View style={styles.galleryBloc}>
           <FlatList
