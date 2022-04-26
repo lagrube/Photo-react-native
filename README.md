@@ -41,19 +41,18 @@ Vous aurez besoin d'avoir `Node` et `npm` installés localement sur votre machin
 
 Clonez ce dépôt: https://github.com/lagrube/Photo-react-native.git.
 
-Ouvrir un terminal et se déplacer dans le dossier frontend, exécutez`npm install`.  
+Ouvrir un terminal et exécutez`npm install`.  
 Ouvrir un autre terminal et se déplacer dans le dossier backend, exécutez `npm install`.  
 Dans le dossier screen/TabOneScreen.tsx; remplacer `http://10.50.37.223:7070/multipart-upload` par votre adresse IP.  
-Dans votre terminal frontend, executez `npm start`.  
-Dans votre terminal backend, executez `npm start`.
+Executez `npm start` dans les deux terminaux.
 
 ### 🔨 En résumé, pour faire fonctionner ce site
 
-- Cloner ce repo
-- Ouvrir le terminal sur le dossier du site
-- Tapez en ligne de commande `npm install` côté frontend et côté backend
-- Modifier l'url des requête du front
-- Puis tapez en ligne de commande `npm start` côté frontend et backend
+- Cloner ce repo. 
+- Ouvrir le terminal sur le dossier du site.
+- Tapez en ligne de commande `npm install` sur les terminaux.
+- Modifier l'url des requête du front. 
+- Puis tapez en ligne de commande `npm start` côté frontend et backend. 
 
 ---
 
