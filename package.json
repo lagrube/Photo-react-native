@@ -12,6 +12,7 @@
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@react-native-async-storage/async-storage": "github:react-native-async-storage/async-storage",
+    "axios": "^0.27.1",
     "expo": "~44.0.0",
     "expo-camera": "^12.1.2",
     "expo-media-library": "^14.0.1",

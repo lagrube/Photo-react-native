@@ -14,6 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Entypo, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { BottomSheet } from "react-native-elements";
 import * as MediaLibrary from "expo-media-library";
+import axios from "axios";
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState<any>(null);
@@ -118,7 +119,26 @@ export default function App() {
   const savePicture = async (item: any) => {
     const res = await MediaLibrary.requestPermissionsAsync();
     if (res.granted) {
-      MediaLibrary.saveToLibraryAsync(item).then(() => setSavePhoto(item));
+      MediaLibrary.saveToLibraryAsync(item).then(() => {
+        setSavePhoto(item);
+
+        let date: string | Blob | string = Date.now().toString() + ".jpg";
+        const image: any = { name: date, type: "image/jpg", uri: item };
+
+        let data = new FormData();
+        data.append("photo", image);
+
+        axios
+          .patch(`http://10.50.37.223:7070/multipart-upload`, data, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+            transformRequest: () => {
+              return data;
+            },
+          })
+          .then(() => console.log("transfert back ok "));
+      });
     }
   };
 
