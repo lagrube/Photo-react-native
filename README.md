@@ -22,7 +22,7 @@
 
 - Chaque photo prise doit être enregistrée à l'aide d'AsyncStorage afin de la retrouver si l'utilisateur réouvre l'app ainsi que dans un contexte React ou un Store Redux. `(3)`.
 
-- Au tap sur le picto nuage, sauvegarder dans la photothèque (Galerie Android, Photos iOS) et changer le statut du nuage qui passe de barré à complet `(4).
+- Au tap sur le picto nuage, sauvegarder dans la photothèque (Galerie Android, Photos iOS) et changer le statut du nuage qui passe de barré à complet `(4)`.
 
 - Au tap sur le picto poubelle afficher une popin de confirmation (BottomSheet) de suppression de l'image.
 - Confirmation fermeture de la popin et suppression de l'image en local et dans le state actuel.
