@@ -8,10 +8,10 @@
 
 ### Objectifs et Compétences évalué
 
-- Avoir un projet qui fonctionne avec un readme complété (1).
+- Avoir un projet qui fonctionne avec un readme complété `(1)`.
 - Nom, Prénom et commentaires particuliers sur ce qu'il reste à faire ou des points précis à améliorer dans le code.
 
-- Code propre, petits composants, peu ou pas d'erreur TypeScript (2).
+- Code propre, petits composants, peu ou pas d'erreur TypeScript `(2)`.
 
 - Mettre en place un écran qui permet de prendre des photos.
   Soit avec l'appareil photo de devant (selfie) soit avec l'appareil photo de derrière (classique) (1).
