@@ -51,8 +51,8 @@ Executez `npm start` dans les deux terminaux.
 - Cloner ce repo. 
 - Ouvrir le terminal sur le dossier du site.
 - Tapez en ligne de commande `npm install` sur les terminaux.
-- Modifier l'url des requête du front. 
-- Puis tapez en ligne de commande `npm start` côté frontend et backend. 
+- Modifier l'url des requêtes. 
+- Puis tapez en ligne de commande `npm start` sur les terminaux. 
 
 ---
 
